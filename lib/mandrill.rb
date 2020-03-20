@@ -55,6 +55,7 @@ module Mandrill
                 'ValidationError' => ValidationError,
                 'Invalid_Key' => InvalidKeyError,
                 'PaymentRequired' => PaymentRequiredError,
+                'Unknown_Subaccount' => UnknownSubaccountError,
                 'Unknown_Template' => UnknownTemplateError,
                 'ServiceUnavailable' => ServiceUnavailableError,
                 'Unknown_Message' => UnknownMessageError,
@@ -62,10 +63,24 @@ module Mandrill
                 'Invalid_Reject' => InvalidRejectError,
                 'Unknown_Sender' => UnknownSenderError,
                 'Unknown_Url' => UnknownUrlError,
+                'Unknown_TrackingDomain' => UnknownTrackingDomainError,
                 'Invalid_Template' => InvalidTemplateError,
                 'Unknown_Webhook' => UnknownWebhookError,
                 'Unknown_InboundDomain' => UnknownInboundDomainError,
-                'Unknown_Export' => UnknownExportError
+                'Unknown_InboundRoute' => UnknownInboundRouteError,
+                'Unknown_Export' => UnknownExportError,
+                'IP_ProvisionLimit' => IPProvisionLimitError,
+                'Unknown_Pool' => UnknownPoolError,
+                'NoSendingHistory' => NoSendingHistoryError,
+                'PoorReputation' => PoorReputationError,
+                'Unknown_IP' => UnknownIPError,
+                'Invalid_EmptyDefaultPool' => InvalidEmptyDefaultPoolError,
+                'Invalid_DeleteDefaultPool' => InvalidDeleteDefaultPoolError,
+                'Invalid_DeleteNonEmptyPool' => InvalidDeleteNonEmptyPoolError,
+                'Invalid_CustomDNS' => InvalidCustomDNSError,
+                'Invalid_CustomDNSPending' => InvalidCustomDNSPendingError,
+                'Metadata_FieldLimit' => MetadataFieldLimitError,
+                'Unknown_MetadataField' => UnknownMetadataFieldError
             }
 
             begin
@@ -107,8 +122,14 @@ module Mandrill
         def whitelists()
             Whitelists.new self
         end
+        def ips()
+            Ips.new self
+        end
         def internal()
             Internal.new self
+        end
+        def subaccounts()
+            Subaccounts.new self
         end
         def urls()
             Urls.new self
@@ -118,6 +139,9 @@ module Mandrill
         end
         def senders()
             Senders.new self
+        end
+        def metadata()
+            Metadata.new self
         end
     end
 end

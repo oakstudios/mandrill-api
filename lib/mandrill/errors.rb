@@ -7,6 +7,8 @@ module Mandrill
     end
     class PaymentRequiredError < Error
     end
+    class UnknownSubaccountError < Error
+    end
     class UnknownTemplateError < Error
     end
     class ServiceUnavailableError < Error
@@ -21,13 +23,41 @@ module Mandrill
     end
     class UnknownUrlError < Error
     end
+    class UnknownTrackingDomainError < Error
+    end
     class InvalidTemplateError < Error
     end
     class UnknownWebhookError < Error
     end
     class UnknownInboundDomainError < Error
     end
+    class UnknownInboundRouteError < Error
+    end
     class UnknownExportError < Error
+    end
+    class IPProvisionLimitError < Error
+    end
+    class UnknownPoolError < Error
+    end
+    class NoSendingHistoryError < Error
+    end
+    class PoorReputationError < Error
+    end
+    class UnknownIPError < Error
+    end
+    class InvalidEmptyDefaultPoolError < Error
+    end
+    class InvalidDeleteDefaultPoolError < Error
+    end
+    class InvalidDeleteNonEmptyPoolError < Error
+    end
+    class InvalidCustomDNSError < Error
+    end
+    class InvalidCustomDNSPendingError < Error
+    end
+    class MetadataFieldLimitError < Error
+    end
+    class UnknownMetadataFieldError < Error
     end
 end
 
